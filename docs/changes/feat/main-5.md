@@ -28,3 +28,9 @@
 未启动或替换用户正在运行的应用，避免改变工作和休息计时。Windows 的托盘、主题、DPI 和窗口表现尚未进行真实 Windows 人工验收。
 
 本次 GitHub 上传内容为完整源码、图标资源及项目文档，不包含本地构建产物，不创建 Release。
+
+## GitHub 交付
+
+- 用户选择公开仓库：https://github.com/Yungzzhh/noticeToStandUp 。
+- 应用提交：`03c4c0c91efd743141c8273f6b6c989b96d6d2f6`，分支 `main`。
+- 首次推送后使用无认证 GitHub API 独立确认仓库公开、默认分支为 `main`、远端提交一致，全部 64 个文件 blob SHA 与本地一致。

@@ -14,7 +14,7 @@
 - [x] 运行测试、构建、资源及签名验证，审查待提交内容；见 `docs/changes/feat/main-5.md`。
 - [x] 确认 GitHub 目标：新建公开仓库 `Yungzzhh/noticeToStandUp`。
 - [x] 创建公开远端仓库：https://github.com/Yungzzhh/noticeToStandUp 。
-- [ ] 提交、推送并从远端回读确认。
+- [x] 提交、推送并从远端回读确认：应用提交 `03c4c0c91efd743141c8273f6b6c989b96d6d2f6` 已推送至 `main`；通过公开 GitHub API 回读确认分支提交一致、全部 64 个文件 blob SHA 一致。
 
 ## 验证边界
 
