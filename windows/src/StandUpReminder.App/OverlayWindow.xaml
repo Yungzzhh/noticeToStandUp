@@ -1,0 +1,82 @@
+<Window x:Class="StandUpReminder.App.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="站立休息"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+        Background="#071A1E"
+        PreviewKeyDown="OnPreviewKeyDown"
+        Closing="OnClosing">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#071A1E" Offset="0" />
+                <GradientStop Color="#073F38" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextElement.Foreground="White">
+            <TextBlock Text="🚶"
+                       FontSize="64"
+                       HorizontalAlignment="Center" />
+            <TextBlock x:Name="HeadlineText"
+                       Margin="0,20,0,8"
+                       FontSize="34"
+                       FontWeight="Bold"
+                       TextAlignment="Center" />
+            <TextBlock Text="休息结束前，屏幕会保持锁定提醒"
+                       FontSize="20"
+                       Foreground="#B8FFFFFF"
+                       TextAlignment="Center" />
+            <TextBlock x:Name="RemainingText"
+                       Margin="0,22,0,18"
+                       FontFamily="Consolas"
+                       FontSize="76"
+                       FontWeight="SemiBold"
+                       TextAlignment="Center"
+                       AutomationProperties.Name="站立休息剩余时间" />
+            <ProgressBar x:Name="Progress"
+                         Width="440"
+                         Height="10"
+                         Minimum="0"
+                         Maximum="1"
+                         Foreground="#58E3B5" />
+        </StackPanel>
+
+        <StackPanel Margin="48,0,48,30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    TextElement.Foreground="White">
+            <TextBlock Text="离开座位走动　·　活动肩颈手腕　·　眺望远处 20 秒　·　喝几口水"
+                       FontSize="16"
+                       Foreground="#CCFFFFFF"
+                       TextAlignment="Center" />
+            <TextBlock x:Name="NextCycleText"
+                       Margin="0,14,0,14"
+                       FontSize="14"
+                       Foreground="#99FFFFFF"
+                       TextAlignment="Center" />
+            <Border x:Name="EndEarlyControl"
+                    Padding="18,9"
+                    HorizontalAlignment="Center"
+                    Background="#12FFFFFF"
+                    CornerRadius="18"
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnEndEarlyMouseDown"
+                    MouseLeftButtonUp="OnEndEarlyMouseUp"
+                    MouseLeave="OnEndEarlyMouseLeave"
+                    LostMouseCapture="OnEndEarlyLostMouseCapture"
+                    AutomationProperties.Name="提前结束本次休息"
+                    AutomationProperties.HelpText="按住三秒钟结束休息并重新开始工作计时">
+                <TextBlock x:Name="EndEarlyText"
+                           Text="长按 3 秒结束本次休息"
+                           FontSize="12"
+                           Foreground="#88FFFFFF" />
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

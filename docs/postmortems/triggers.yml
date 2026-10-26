@@ -1,0 +1,24 @@
+version: 1
+triggers:
+  - id: overlay-primary-content-off-center
+    symptom: 强制休息遮罩的标题或倒计时看起来偏离屏幕正中间
+    postmortem: PM-main-1.md
+    checks:
+      - 主视觉内容必须独立占满 panel 并使用 center 对齐
+      - 底部活动提示和长按结束控件不能参与主视觉的居中尺寸计算
+      - 多显示器窗口继续使用各自 NSScreen.frame
+  - id: early-break-end-terminates-app
+    symptom: 强制休息中长按结束后菜单栏应用也一起退出
+    postmortem: PM-main-2.md
+    checks:
+      - 遮罩内的结束操作只能触发 ReminderEngine 状态迁移
+      - 提前结束必须进入完整的 working 周期
+      - 只有菜单栏退出命令可以调用 NSApp.terminate
+      - 提前结束不能增加已完成休息次数
+  - id: shell-variable-adjacent-to-non-ascii
+    symptom: 构建完成后在中文输出处报 unbound variable 并返回非零状态
+    postmortem: PM-main-3.md
+    checks:
+      - set -u 脚本中的变量展开统一使用花括号
+      - 变量紧邻中文或全角标点时禁止使用裸 $VAR
+      - 构建成功必须同时满足脚本退出码为零
